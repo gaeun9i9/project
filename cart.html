@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>♡ G_ jewelry ♡ - 장바구니</title>
+    <link rel="stylesheet" href="./w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body{width: 950px; margin: 0 auto; background-color: #F3F1E9; }
+        *{font-family: Arial, Helvetica, sans-serif ;}
+        header{ align-items: center;}
+        header h1{ 
+            text-align: center; display: inline; font-size: 60px; 
+            text-shadow: 2px 2px 4px #242424;
+            flex-direction: column; align-items: center; vertical-align: middle; font-weight: bolder;
+        }
+        nav ul {
+            list-style-type: none;
+            text-align: center; border-top: 2px solid #A9A9A9;
+            border-bottom: 2px solid #A9A9A9; padding: 10px 10px;
+            font-size: 8px ;
+        }
+        a {text-decoration: none;}
+        nav ul li {
+            display: inline;
+            padding: 10px 50px;
+            letter-spacing: 5px;
+        }
+        nav ul li:hover {
+            background-color: #A9A9A9;
+        }
+        nav li a:hover {
+            color: white;
+        }
+        section{display: flex;}
+        article{flex: 3;}
+        aside{flex: 1;}
+        article h2{text-align: center; font-weight: bold;}
+        #cart, #all{
+            display: flex;
+            flex-wrap: wrap;  /*항목을 여러 행에 나열*/
+        }
+        #img1, #img2, #img3, #img4, #img5, #img6, #img7, #img8, #img9 {
+            flex: 3;
+        }
+        aside{
+            float: right;
+            width: 250px;
+            margin: 1em;
+        }
+        aside button{
+            width: 105px;
+            height: 30px;
+            background-color: none;
+            border: 2px solid grey;
+            color: grey;
+            text-align: center;
+            padding: 2px 2px;
+            cursor: pointer;
+        }
+        aside h3{text-align: center; font-weight: bold;}
+        aside form{text-align: center;}
+        aside ul li{
+            text-align: center;
+            font-weight: 300;
+            font-size: medium;
+            height: 30px;
+            padding: 5px, 10px;
+            margin-top: 10px;
+            border-bottom: 1px solid grey;
+        }
+        aside a{text-align: center; font-weight: bold; font-size: medium;}
+        #silver{ text-align: center;}
+    </style>
+
+    <script>
+        function w3_open(){
+               document.getElementById("mySidebar").style.display = "block";
+        }
+        function w3_close(){
+               document.getElementById("mySidebar").style.display = "none";
+        }
+
+        // 장바구니에 추가시키기 //
+        function cartAppend(e){ //매개변수 e (img1에 해당하는 엘리먼트 버튼 누르면 e에 img1 들어감)
+            const x = document.getElementById(e);
+            const ele = document.getElementById("cart");
+            ele.appendChild(x);
+        }
+        // 장바구니에 삭제시키기 //
+        function cartRemove(e){
+            const x = document.getElementById(e);
+            const cart = document.getElementById("cart");
+            const list = document.getElementById("all1");
+            cart.removeChild(x);
+            list.appendChild(x); 
+        }
+
+        function login(){
+               let id = document.getElementById("id").value;
+               let pw = document.getElementById("pw").value;
+               if(id==="admin"){
+                   if(pw=="1234"){
+                        alert("로그인이 되었습니다");
+                   } else {
+                       alert("비밀번호를 확인하세요");
+                   }
+               }else{
+                   alert("회원가입을 하세요");
+               }
+           }
+
+        let name = ' ';
+        function init(){
+            name = document.getElementById("id");
+            name.addEventListener("focus", bgcolor);  
+            name.addEventListener("blur", myfunc); 
+        }
+        function bgcolor(){
+            name.style.fontSize = "large"
+        }
+        function myfunc(){
+            name.style.fontSize = "medium";
+        }
+
+        function mover(e){
+            e.style.backgroundColor= "yellow";
+        }
+        function mout(e){
+            e.style.backgroundColor= "#F3F1E9";
+        }
+    </script>
+</head>
+
+<body onload=" init(); ">
+    <header>
+        <div class="w3-sidebar w3-bar-block	w3-border-right" style="display:none" id="mySidebar">
+            <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+            <a href="#" class="w3-bar-item w3-button">NECKLACE</a>
+            <a href="#" class="w3-bar-item w3-button">RING</a>
+            <a href="#" class="w3-bar-item w3-button">BRACELET</a>
+            <a href="#" class="w3-bar-item w3-button">EARRING</a>
+            <a href="#" class="w3-bar-item w3-button">Q&A</a>
+        </div>
+        <div class="w3-#F3F1E9">
+            <button class="w3-button w3-#F3F1E9 w3-xlarge" onclick="w3_open()">☰</button>
+        </div>
+        <center>
+            <img src="./images/white.jpg" alt="logophoto1" height="150" width="200">
+            <h1 class="w3-text-grey">G_ jewelry</h1>
+            <img src="./images/sky.jpg" alt="logophoto1" height="150" width="200">
+        </center>
+    </header>
+
+    <nav> 
+        <ul>
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#best">BEST</a></li>
+            <li><a href="#recommended">RECOMMENDED</a></li>
+            <li><a href="#update">UPDATE</a></li>
+            <li><a href="">CART</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <article>
+            <br>
+            <h2 class="w3-text-grey">SHOPPING CART</h2>
+            <div id="cart" class="w3-white">
+                
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            </div>
+            <br><br><br>
+
+            <hr style="border:solid 3px grey;">
+            <h2 class="w3-text-grey">ALL PRODUCT</h2>
+            <div id="all1">
+                <div id="img1" class=" w3-third w3-container">
+                    <img src="./images/jew02.jpg" alt="jew02">
+                    <p onmouseover="this.style.text= 'line' ;">하트 각인 목걸이</br>39,000</p>
+                    <button onclick="cartAppend('img1');">장바구니</button>
+                    <button onclick="cartRemove('img1');">삭제</button>
+                </div>
+                <div id="img2" class="w3-third w3-container">
+                    <img src="./images/jew03.jpg" alt="jew03">
+                    <p>베이글 목걸이</br>39,000</p>
+                    <button onclick="cartAppend('img2');">장바구니</button>
+                    <button onclick="cartRemove('img2');">삭제</button>
+                </div>
+                <div id="img3" class="w3-third w3-container">
+                    <img src="./images/jew04.jpg" alt="jew04">
+                    <p>하트 각인링</br>29,000</p>
+                    <button onclick="cartAppend('img3');">장바구니</button>
+                    <button onclick="cartRemove('img3');">삭제</button>
+                </div>
+                <div id="img4" class="w3-third w3-container">
+                    <img src="./images/jew05.jpg" alt="jew05">
+                    <p>심플 각인 팔찌</br>39,000</p>
+                    <button onclick="cartAppend('img4');">장바구니</button>
+                    <button onclick="cartRemove('img4');">삭제</button>
+                </div>
+                <div id="img5" class="w3-third w3-container">
+                    <img src="./images/jew06.jpg" alt="jew06">
+                    <p>파도링</br>39,000</p>
+                    <button onclick="cartAppend('img5');">장바구니</button>
+                    <button onclick="cartRemove('img5');">삭제</button>  
+                </div>  
+                <div id="img6" class="w3-third w3-container">
+                    <img src="./images/jew07.jpg" alt="jew07">
+                    <p>매듭링</br>29,000</p>
+                    <button onclick="cartAppend('img6');">장바구니</button>
+                    <button onclick="cartRemove('img6');">삭제</button>  
+                </div>   
+                <div id="img7" class=" w3-third w3-container">
+                    <img src="./images/jew09.jpg" alt="jew09">
+                    <p>심플 십자가 팔찌</br>39,000</p>
+                    <button onclick="cartAppend('img7');">장바구니</button>
+                    <button onclick="cartRemove('img7');">삭제</button>
+                </div>
+                <div id="img8" class="w3-third w3-container">
+                    <img src="./images/jew10.jpg" alt="jew10">
+                    <p>포인트 하트 이어링</br>19,000</p>
+                    <button onclick="cartAppend('img8');">장바구니</button>
+                    <button onclick="cartRemove('img8');">삭제</button>
+                </div>
+                <div id="img9" class="w3-third w3-container">
+                    <img src="./images/jew12.jpg" alt="jew12">
+                    <p>심플 실반지</br>9,900</p>
+                    <button onclick="cartAppend('img9');">장바구니</button>
+                    <button onclick="cartRemove('img9');">삭제</button>
+                </div>
+            </div>
+        </article>
+
+        <aside>
+            <div>
+                <audio autoplay loop src="./media/music.mp3" controls></audio>
+            </div>
+            <div class="w3-white">
+                <h3 class="w3-text-grey" >LOGIN</h3>
+                <form action="#" class="w3-text-grey">
+                    <input type="text" name="" id="id" placeholder="ID"> <br>
+                    <input type="password" name="" id="pw" placeholder="PASSWORD"> <br>
+                    <br>
+                    <button onclick="login();">로그인</button><button onclick="cancel();">취소</button><br>
+                    <a href="http://127.0.0.1:5500/project/register.html">회원가입</a>
+                    <br><br>
+                </form>
+            </div>
+            
+            <br>
+            <hr style="border:solid 2px grey;">
+            <div id="mypage" class="w3-white">
+                <h3 class="w3-text-grey" >MY PAGE</h3>
+                <ul type="square" class="w3-text-grey">
+                    <li><a href="#" onmouseover="this.style.fontSize= 'large' ;"  onmouseout="this.style.fontSize= 'medium' ;">회원정보수정</a></li>
+                    <li><a href="#" onmouseover="this.style.fontSize= 'large' ;"  onmouseout="this.style.fontSize= 'medium' ;">주문내역</a></li>
+                    <li><a href="#" onmouseover="this.style.fontSize= 'large' ;"  onmouseout="this.style.fontSize= 'medium' ;">장바구니</a></li>
+                    <li><a href="#" onmouseover="this.style.fontSize= 'large' ;"  onmouseout="this.style.fontSize= 'medium' ;">적립금</a></li>
+                    <li><a href="#" onmouseover="this.style.fontSize= 'large' ;"  onmouseout="this.style.fontSize= 'medium' ;">쿠폰</a></li>
+                    <li><a href="#" onmouseover="this.style.fontSize= 'large' ;"  onmouseout="this.style.fontSize= 'medium' ;">내 게시글</a></li>
+                </ul>
+                <br>
+            </div>
+            
+            <br>
+            <hr style="border:solid 2px grey;">
+            <div id="silver" class="w3-text-grey" onmouseover="mover(this) ;" onmouseout="mout(this) ;">
+                <a href="https://ko.wikipedia.org/wiki/%EC%8A%A4%ED%84%B8%EB%A7%81_%EC%8B%A4%EB%B2%84" target="_blank">925 SILVER ?</a><br>
+            </div>
+            
+            
+        </aside>
+    </section>
+
+    
+
+    <footer class="w3-grey w3-text-white">
+        <div class="w3-row">
+            <div class="w3-col s4  w3-container" >
+                <h5> Contact</h5>
+                <ul>
+                    <li>Email: <a href="mailto:jge0919@donga.ac.kr" title="Email Us">jge0919@donga.ac.kr</a></li>
+                    
+                </ul>
+            </div>
+            <div class="w3-col s4  w3-container" >
+                <h5> Follow</h5>
+                <a href="https://www.instagram.com/gani.9i9/"><i class="fa fa-instagram" style="font-size:30px;color:white;"></i></a>
+                <a href="#"><i class="fa fa-facebook" style="font-size:30px;color:white;"></i></a>
+                <br>
+                <ul>
+                  <li> &copy; G_ jewelry</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

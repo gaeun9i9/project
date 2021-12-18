@@ -77,6 +77,11 @@
         }
         aside a{text-align: center; font-weight: bold; font-size: medium;}
         #silver{ text-align: center;}
+        #bookmark{
+            position: fixed;
+            right: 100px;
+            bottom: 60px;
+        }
     </style>
 
     <script>
@@ -94,7 +99,8 @@
             let data = [["심플 각인 목걸이", "./images/jew01.jpg", 49000],
                         ["더블 팔찌", "./images/jew08.jpg", 39000],
                         ["꼬임링", "./images/jew11.jpg", 29000]]
-            text = `<table class="w3-table-all w3-hoverable"><tr class="w3-blue"><th>제품명</th><th>view</th><th>가격</th></tr>`;
+            text = `<table class="w3-table-all w3-hoverable"><tr class="w3-grey">
+                <th class="w3-text-white">제품명</th><th class="w3-text-white">view</th><th class="w3-text-white">가격</th></tr>`;
              for(let i =0; i<data.length; i++){
                 text+=`<tr><td>${data[i][0]}</td><td><img src=${data[i][1]}></td><td>${data[i][2]}</td></tr>`;
             }
@@ -130,7 +136,7 @@
         }
 
         function mover(e){
-            e.style.backgroundColor= "yellow";
+            e.style.backgroundColor= "white";
         }
         function mout(e){
             e.style.backgroundColor= "#F3F1E9";
@@ -152,9 +158,12 @@
             <button class="w3-button w3-#F3F1E9 w3-xlarge" onclick="w3_open()">☰</button>
         </div>
         <center>
+            <div id="header">
+                <a href="/index.html">
             <img src="./images/white.jpg" alt="logophoto1" height="150" width="200">
             <h1 class="w3-text-grey">G_ jewelry</h1>
-            <img src="./images/sky.jpg" alt="logophoto1" height="150" width="200">
+            <img src="./images/sky.jpg" alt="logophoto1" height="150" width="200"></a>
+            </div>
         </center>
     </header>
 
@@ -164,7 +173,7 @@
             <li><a href="#best">BEST</a></li>
             <li><a href="#recommended">RECOMMENDED</a></li>
             <li><a href="#update">UPDATE</a></li>
-            <li><a href="https://gaeun9i9.github.io/project/cart.html">CART</a></li>
+            <li><a href="/cart.html">CART</a></li>
         </ul>
     </nav>
 
@@ -182,7 +191,7 @@
                 <hr style="border:solid 3px grey;">
                 <h2 class="w3-text-grey">BEST</h2>
                 <div id="img1" class=" w3-third w3-container">
-                    <img src="./images/jew02.jpg" alt="jew02">
+                    <img src="./images/jew02.jpg" alt="jew2">
                     <p onmouseover="this.style.text= 'line' ;">하트 각인 목걸이</br>39,000</p>
                     <button onclick="cartAppend('img1');">장바구니</button>
                     <button onclick="cartRemove('img1');">삭제</button>
@@ -268,7 +277,7 @@
                     <input type="password" name="" id="pw" placeholder="PASSWORD"> <br>
                     <br>
                     <button onclick="login();">로그인</button><button onclick="cancel();">취소</button><br>
-                    <a href="https://gaeun9i9.github.io/project/register.html">회원가입</a>
+                    <a href="/register.html">회원가입</a>
                     <br><br>
                 </form>
             </div>
@@ -280,7 +289,7 @@
                 <ul type="square" class="w3-text-grey">
                     <li><a href="#" onmouseover="this.style.fontSize= 'large' ;"  onmouseout="this.style.fontSize= 'medium' ;">회원정보수정</a></li>
                     <li><a href="#" onmouseover="this.style.fontSize= 'large' ;"  onmouseout="this.style.fontSize= 'medium' ;">주문내역</a></li>
-                    <li><a href="#" onmouseover="this.style.fontSize= 'large' ;"  onmouseout="this.style.fontSize= 'medium' ;">장바구니</a></li>
+                    <li><a href="/cart.html" onmouseover="this.style.fontSize= 'large' ;"  onmouseout="this.style.fontSize= 'medium' ;">장바구니</a></li>
                     <li><a href="#" onmouseover="this.style.fontSize= 'large' ;"  onmouseout="this.style.fontSize= 'medium' ;">적립금</a></li>
                     <li><a href="#" onmouseover="this.style.fontSize= 'large' ;"  onmouseout="this.style.fontSize= 'medium' ;">쿠폰</a></li>
                     <li><a href="#" onmouseover="this.style.fontSize= 'large' ;"  onmouseout="this.style.fontSize= 'medium' ;">내 게시글</a></li>
@@ -296,6 +305,9 @@
             
             
         </aside>
+        <div id="bookmark"> 
+            <input type="image" src="./images/up.png" style="width: 30px;" onClick="javascript:window.scrollTo(0,0)" alt="맨위로" /> 
+        </div>
     </section>
 
     
@@ -306,6 +318,8 @@
                 <h5> Contact</h5>
                 <ul>
                     <li>Email: <a href="mailto:jge0919@donga.ac.kr" title="Email Us">jge0919@donga.ac.kr</a></li>
+                    <li>문의전화: 010.5261.5226</li>
+                    <li>상담시간(평일 10:00~17:00)</li>
                     
                 </ul>
             </div>
@@ -317,6 +331,10 @@
                 <ul>
                   <li> &copy; G_ jewelry</li>
                 </ul>
+            </div>
+            <div class="w3-col s4  w3-container" >
+                <h5> </h5>
+                We want to present a little speciality to your daily life.♥
             </div>
         </div>
     </footer>
